@@ -65,7 +65,7 @@ namespace detail
 		__m128 NativeResult[4];
 		glm_mat4_outerProduct(c.data, r.data, NativeResult);
 		mat<4, 4, float, aligned_lowp> Result;
-		std::memcpy(&Result[0], &NativeResult[0], sizeof(Result));
+		std::memcpy(static_cast<void*>(&Result[0]), &NativeResult[0], sizeof(Result));
 		return Result;
 	}
 
@@ -75,7 +75,7 @@ namespace detail
 		__m128 NativeResult[4];
 		glm_mat4_outerProduct(c.data, r.data, NativeResult);
 		mat<4, 4, float, aligned_mediump> Result;
-		std::memcpy(&Result[0], &NativeResult[0], sizeof(Result));
+		std::memcpy(static_cast<void*>(&Result[0]), &NativeResult[0], sizeof(Result));
 		return Result;
 	}
 
@@ -85,7 +85,7 @@ namespace detail
 		__m128 NativeResult[4];
 		glm_mat4_outerProduct(c.data, r.data, NativeResult);
 		mat<4, 4, float, aligned_highp> Result;
-		std::memcpy(&Result[0], &NativeResult[0], sizeof(Result));
+		std::memcpy(static_cast<void*>(&Result[0]), &NativeResult[0], sizeof(Result));
 		return Result;
 	}
 #	endif

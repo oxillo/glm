@@ -306,7 +306,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER mat<4, 4, T, Q>& mat<4, 4, T, Q>::operator=(mat<4, 4, U, Q> const& m)
 	{
 		//memcpy could be faster
-		//memcpy(&this->value, &m.value, 16 * sizeof(valType));
+		//memcpy(static_cast<void*>(&this->value), &m.value, 16 * sizeof(valType));
 		this->value[0] = m[0];
 		this->value[1] = m[1];
 		this->value[2] = m[2];

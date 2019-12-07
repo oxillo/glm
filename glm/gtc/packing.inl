@@ -140,7 +140,7 @@ namespace detail
 		uint Result = packed11ToFloat(x);
 
 		float Temp = 0;
-		memcpy(&Temp, &Result, sizeof(Temp));
+		memcpy(static_cast<void*>(&Temp), &Result, sizeof(Temp));
 		return Temp;
 	}
 
@@ -170,7 +170,7 @@ namespace detail
 		uint Result = packed10ToFloat(x);
 
 		float Temp = 0;
-		memcpy(&Temp, &Result, sizeof(Temp));
+		memcpy(static_cast<void*>(&Temp), &Result, sizeof(Temp));
 		return Temp;
 	}
 
